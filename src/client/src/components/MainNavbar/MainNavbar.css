@@ -1,0 +1,33 @@
+.posMenu{
+    top: 45px;
+    font-size: 20px;
+    right: 68px;
+    color: white !important;
+}
+
+.topNav{
+    height: 100px;
+    background-color: #364863 !important;
+    border-radius: 0 !important;
+}
+
+.loggedInOptions{
+    color: white;
+    font-size: 17px;
+    margin-bottom: 65px;
+}
+
+#logo{
+    width: 55px;
+    height: 55px;
+    margin-bottom: 30px
+}
+
+ .searchProducts{
+    top: 5px;
+}
+
+.client{
+    left: 21%;
+    top: 5px;
+} 

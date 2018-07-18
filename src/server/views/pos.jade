@@ -1,0 +1,47 @@
+extends layout
+
+block content
+    div.row.header-wrapper
+        div.col-6
+            form(method = 'post').form-inline.form-top
+                div.input-group.my-2
+                    div.input-group.prepend
+                        div.input-group-text Barcode
+                        input(type = 'text', placeholder = 'Barcode').form-control
+                button.btn.btn-default.ml-4.my-2 Search
+
+        div.col-6
+            div.row
+                div.total-wrapper.col
+                    div.input-group.my-2
+                        div.input-group-prepend
+                            div.input-group-text TOTAL
+                        label.total.px-3.mt-2 0.00
+                div.purchase-wrapper.col
+                    button.btn.btn-success#purchase.my-2 Purchase
+
+
+
+    div.row.mt-4
+        table.table.table-scroll
+            thead
+                tr
+                    th Action
+                    th Product
+                    th Unit Price
+                    th Quantity
+                    th Sum
+            tbody
+                tr
+                    td X
+                    td Coke
+                    td 45
+                    td 67
+                    td 536
+                tr
+                                    td X
+                                    td Coke
+                                    td 45
+                                    td 67
+                                    td 536
+

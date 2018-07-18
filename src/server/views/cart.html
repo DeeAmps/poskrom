@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Poskrom | POS</title>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+	<link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+	<link rel="stylesheet" href="/css/jquery-ui.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/css/receipt.css">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="/css/nav.css">
+</head>
+<body>
+
+
+
+		<div class="nav-container-fluid">
+			<div class="main-nav row">
+				<div class="col-md-2 left-wrapper">
+					<div class="row pt-2">
+						<div class="col-sm-12 logo-wrapper">
+							<img class="logo ml-1" src="/imgs/logo.png">
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="current-nav ml-1 mt-2 col-sm-12">
+							<label class="nav-list toggle-overlay">POS</label>
+							<span>
+								<i class="fas fa-caret-down overlay-show toggle-overlay"></i>
+								<i class="fas fa-times overlay-hide hidden toggle-overlay"></i>
+							</span>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="col-md-5 middle-wrapper">
+					<div class="row">
+							<form id="product-search-form" class="mt-4">
+								<div class="input-group col-sm-12 mt-3 product-search-wrapper">
+									<input type="text" class="form-control" placeholder="Search product....." id="product-search-field">
+									<div class="input-group-append">
+										<span class="input-group-text" id="search-options">
+											<i class="fas fa-search search-symbol"></i>
+											<i class="fas fa-times reset-search hidden"></i>
+										</span>
+									</div>
+								</div>
+							</form>
+					</div>
+				</div>
+
+				<div class="col-md-5 right-wrapper">
+					<div class="row">
+						<div class="dropdown nav-item col-sm-8 offset-4">
+							<a class="dropdown-toggle username-dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+							</a>
+							<input type="text" val="" class="hidden" id="username-id">
+							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="#">Profile</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item logout" href="#">Logout</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="row mt-2">
+						<div class="col-sm-12">
+							<div class="input-group client-search-wrapper" id="client-search-wrapper-id" style="position: relative;">
+								<img src="/imgs/spin2.gif" class="mt-2 mr-1 client-active-loader hidden"/>
+								<input type="text" class="form-control nav-autocomplete" placeholder="Client..." id="client-search-field">
+								<input type="text" name="" value="" class="hidden" id="client-search-id">
+								<div class="input-group-append">
+									<span class="input-group-text" id="search-options">
+										<i class="fas fa-search client-symbol"></i>
+										<i class="fas fa-times reset-client hidden"></i>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>		<!--Main navaber end-->
+
+			<div class="row module-overlay hidden">
+				<div class="module-overlay-box col-md-12">
+
+				</div>
+			</div>
+
+			<div class="row menu-wrapper">
+				<div class="col-sm-8 menu-left">
+					<ul class="menu-list">
+							<li id="menu-sales">sales</li>
+							<li id="menu-purchases">purchases</li>
+							<li id="menu-transfer">transfer</li>
+					</ul>
+				</div>
+				<div class="col-sm-4 submenu-icon menu-right">
+						<button class="icon-logo icon-filter float-right menu-stocks">ICON</button>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+
+
+
+	<div class="container-fluid cart-page-container" style="position: relative;">
+
+
+			<div id="mainCoverScreen"  class="LockOn hidden"></div>
+
+			<div class="pop-quantity hidden">
+					<p>Hey am empty</p>
+			</div>
+
+		<div class="modal fade" id="priceModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLabel">Update Price For</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        <form>
+					<div class="form-group">
+						<label for="oldprice-label" class="col-form-label">Product:	</label>
+						<label for="old-price" id="price-product-label"></label>
+					</div>
+					<div class="form-group">
+						<label for="oldprice-label" class="col-form-label">Barcode Label:	</label>
+						<label for="old-price" id="price-barcode-label"></label>
+					</div>
+					<div class="form-group">
+						<label for="oldprice-label" class="col-form-label">Stock Unit Label:	</label>
+						<label for="old-price" id="price-stock-label"></label>
+					</div>
+					<hr>
+		          <div class="form-group">
+		            <label for="oldprice-label" class="col-form-label">Old price:</label>
+		            <label for="old-price" id="old-price-value"></label>
+		          </div>
+		          <div class="form-group">
+		            <label for="message-text" class="col-form-label">New price</label>
+					<input type="Number" name="" value="" class="form-control popup-input" style="width: 50%" id="popup-new-price">
+					<input type="text" class="hidden" val="" id="popup-stock-unit-id">
+				  </div>
+
+				  <div class="form-group">
+						<label for="message-text" class="col-form-label">New stock quantity</label>
+						<input type="Number" name="" value="" class="form-control popup-input" style="width: 50%" id="popup-new-stock-quantity" disabled>
+					</div>
+		        </form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
+		        <button type="button" class="btn btn-danger" id="popup-update-price-btn">Update stock <img id="update-price-loader" src = "/imgs/Spin2.gif" alt="updating" class="hidden"/></button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+
+
+
+
+		<div class="row header-wrapper py-1">
+			<div class="col-md-12 col-sm-12">
+				<div class="row">
+					<div class="col-sm-2"> </div>
+					<div class="col-sm-6 cart-order-info-wrapper">
+						<p class="cart-order-info"><span class="cart-order-type"></span> reference: <span class="cart-reference-code"></span> ( <span class="cart-order-status"></span> )</p>
+					</div>
+					<div class="col-3">
+						<div class="input-group mx-7 py-0" id="total-wrapper">
+							<div class="input-group-prepend">
+								<div class="input-group-text">TOTAL GHS</div>
+							</div>
+							<label id="price-total" class="price-total form-control text-center">0.00</label>
+						</div>
+					</div>
+					<div class="col-1">
+						<button id="checkout-button" class="btn btn-success float-right">summary</button>
+					</div>
+				</div>
+
+			</div>
+		</div>   <!--End of row-->
+
+		<div class="row main">
+			<div class="search-results-panel">
+				<div class="panel-controls"></div>
+				<div class="search-result-list"></div>
+			</div>
+			<div class="main-panel">
+				 <div class="table-wrapper" style="height: 100%; position: relative;">
+					<table id="order-entry-table" class="table-scroll">
+						<div id="entry-table-loader"  class="LockOn hidden"></div>
+						<thead>
+							<tr>
+								<th></th>
+								<th>Product</th>
+								<th>Barcode Unit</th>
+								<th>Stock Unit</th>
+								<th>Qty</th>
+								<th>Unit Price</th>
+								<th>Sum</th>
+							</tr>
+						</thead>
+						<tbody id="order-entries" class="order-entry-table-body">
+								<!-- <div id="cartScreen"  class="LockOn entry-table-loader hidden"></div> -->
+							<div class=" entry-default hidden" id="entry-default-id"><label id="default-su"></label><label id = "default-quantity"></label>
+								<label id="default-entry-id"></label>
+							</div>	
+						</tbody>
+					</table>	
+					<div class="empty-cart hidden"><span class="no-cart-text">No cart Entries</span></div>	
+				</div>
+			</div>
+		</div>
+
+
+
+	</div>
+	<div class="row receipt-wrapper">
+			<div class="well col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
+					<div class="row">
+							<div class="col-xs-6 col-sm-6 col-md-6">
+									<address>
+											<strong>Ecotel Enterprise</strong><br>
+											11th Street, Achimota Petroleum<br>
+											Greater Accra<br>
+											Phone: 0545444809
+									</address>
+									<em id='print-timestamp'>Date: 1st January, 2013</em>
+							</div>
+					</div>
+					<div class="row">
+							<div class="text-center">
+									<h1>Invoice #123</h1>
+							</div>
+							</span>
+							<table class="table">
+									<thead>
+											<tr>
+													<th>Product</th>
+													<th>Qty</th>
+													<th class="text-center">Price</th>
+													<th class="text-center">Total</th>
+											</tr>
+									</thead>
+									<tbody id="order-entries-print">
+                                        <tr class="entry-base">
+													<td class="col-md-9 product-name"></td>
+													<td class="col-md-1 quantity" style="text-align: center"><span class="receipt-stock-unit"></span></td>
+													<td class="col-md-1 text-center unit-price"></td>
+													<td class="col-md-1 text-center sum"></td>
+											</tr>
+									</tbody>
+							</table>
+					</div>
+					<div class="row">
+						<div class="col-sm-6 col-xs-6 col-md-12">
+							<div class="emphasize float-right">
+								TOTAL: <span class="currency">GHC</span><span id="price-total-print">0.00</span>
+							</div>
+						</div>
+					</div>
+			</div>
+
+
+
+
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/cart.js"></script>
+<script type="text/javascript" src="/js/notifier.js"></script>
+<script type="text/javascript" src="/js/app.js"></script>
+<script type="text/javascript" src="/js/nav.js"></script>
+</body>
+</html>

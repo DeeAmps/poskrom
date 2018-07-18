@@ -1,0 +1,19 @@
+#login{
+    padding: 2%;
+    margin-left: 40%;
+    margin-top: 18%;
+    width: 350px;
+    border-radius: 0 !important;
+}
+
+.ui-blockui {
+    position : fixed;
+ }
+
+#serverErr{
+    color: red;
+    text-align: center;
+    padding-left: 10% 
+}
+
+

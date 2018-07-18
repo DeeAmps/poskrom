@@ -1,0 +1,42 @@
+.ordersButton{
+    float: right;
+    border-radius: 0 !important;
+    padding-left: 25px ;
+    margin-top: 5px !important;
+}
+
+.cartMenu{
+    height: 30px;
+    margin-top: 15px;
+    padding-bottom: 25px;
+    min-height: 0 !important;
+    border-bottom: 1px solid black;
+    border-radius: 0 !important;
+    border-bottom: 1px solid rgb(187, 183, 183) !important;
+    background-color: #eff0f2;
+}
+
+.totalInput{
+    width: 20px;
+}
+
+#cartInput{
+    font-weight: bolder !important;
+    font-size: 17px !important;
+    text-align: center;
+}
+
+.total{
+    font-size: 15px;
+    padding-top: 20px !important;
+    margin-top: 2px !important;
+}
+
+.salesRef{
+    font-size: 25px;
+    padding-top: 10px !important;
+    padding-left: 150px !important;
+    color: grey;
+    font-weight: bold;
+    margin-left: 15px !important;
+}

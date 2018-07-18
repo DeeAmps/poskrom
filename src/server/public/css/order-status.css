@@ -1,0 +1,56 @@
+html, body {
+    min-height: 100%;
+    height: 100%;
+  }
+
+  body {
+    overflow-y: auto;
+    background-color: #f7f9f8;
+  }
+
+
+  .LockOn {
+      position: absolute;
+      z-index: 99999;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      background-color:white;
+      vertical-align:bottom;
+      padding-top: 20%;
+      filter: alpha(opacity=75);
+      opacity: 0.75;
+      font-size:large;
+      color:blue;
+      font-style:italic;
+      font-weight:400;
+      background-image: url("/imgs/rolling.gif");
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+      }
+
+
+    .status-labels {
+        font-size: 15px;
+        line-height: 15px;
+        font-weight: bold;
+    }
+
+    .container-fluid {
+      height: 100%;
+
+    }
+
+    thead th {
+        color: #256fe8;
+    }
+
+    .table-striped>tbody>tr:nth-child(odd)>td {
+        background-color: #bfedb8;
+     }
+
+     .table-striped>tbody>tr:nth-child(even)>td {
+        background-color: #f7f9f8;
+      }

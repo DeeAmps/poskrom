@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Poskrom | Reports</title>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/jquery-ui.min.css">
+	<link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/css/report.css">
+	<link rel="stylesheet" href="/css/nav.css">
+
+</head>
+<body>
+
+		<div class="nav-container-fluid">
+				<div class="main-nav row">
+					<div class="col-md-2 left-wrapper">
+						<div class="row pt-2">
+							<div class="col-sm-12 logo-wrapper">
+								<img class="logo ml-1" src="/imgs/logo.png">
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="current-nav ml-1 mt-2 col-sm-12">
+								<label class="nav-list toggle-overlay">REPORT</label>
+								<span>
+									<i class="fas fa-caret-down overlay-show toggle-overlay"></i>
+									<i class="fas fa-times overlay-hide hidden toggle-overlay"></i>
+								</span>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="col-md-5 middle-wrapper">
+						<div class="row">
+								<form id="product-search-form" class="mt-4">
+									<div class="input-group col-sm-12 mt-3">
+										<input type="text" class="form-control" placeholder="Search product....." id="product-search-field">
+										<div class="input-group-append">
+											<span class="input-group-text" id="search-options">
+												<i class="fas fa-search search-symbol"></i>
+												<i class="fas fa-times reset-search hidden"></i>
+											</span>
+										</div>
+									</div>
+								</form>
+						</div>
+					</div>
+
+					<div class="col-md-5 right-wrapper">
+						<div class="row">
+							<div class="dropdown nav-item col-sm-8 offset-4">
+								<a class="dropdown-toggle username-dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+								</a>
+								<input type="text" val="" class="hidden" id="username-id">;
+								<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="#">Profile</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item logout" href="#">Logout</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="row mt-2">
+							<div class="col-sm-12">
+								<div class="input-group client-search-wrapper" id="client-search-wrapper-id">
+									<img src="/imgs/spin2.gif" class="mt-2 mr-1 client-active-loader hidden"/>
+									<input type="text" class="form-control nav-autocomplete" placeholder="Client..." id="client-search-field">
+									<input type="text" name="" value="" class="hidden" id="client-search-id">
+									<div class="input-group-append">
+										<span class="input-group-text" id="search-options">
+											<i class="fas fa-search client-symbol"></i>
+											<i class="fas fa-times reset-client hidden"></i>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>		<!--Main navaber end-->
+
+				<div class="row module-overlay hidden">
+					<div class="module-overlay-box col-md-12">
+						<!-- <div id="navigate-pos" class="box">
+							<div class="icon-image-container"><img class="module-icon" src="/imgs/pos1.png" alt="pos"></div>
+							<div class="icon-label-container"><span class="icon-label-text">pos</span></div>
+						</div>
+
+						<div id="navigate-report" class="box">
+								<div class="icon-image-container"><img class="module-icon" src="/imgs/report.png" alt="pos"></div>
+								<div class="icon-label-container"><span class="icon-label-text">reports</span></div>
+						</div>
+
+						<div id="navigate-inventory" class="box">
+								<div class="icon-image-container"><img class="module-icon" src="/imgs/inventory.png" alt="pos"></div>
+								<div class="icon-label-container"><span class="icon-label-text">inventory</span></div>
+						</div> -->
+					</div>
+					</div>
+
+
+				<div class="row menu-wrapper">
+					<div class="col-sm-8 menu-left">
+						<ul class="menu-list">
+							<li>daily report</li>
+							<li>weekly report</li>
+							<li>monthly report</li>
+						</ul>
+					</div>
+					<div class="col-sm-4 submenu-icon menu-right">
+							<button class="icon-logo icon-filter float-right">ICON</button>
+					</div>
+				</div>
+			</div>
+
+
+
+
+	<!-- <div class="nav-container-fluid">
+		<header class="main-nav row">
+
+			<div class="col-md-2 col-sm-4 col-xm-4 left-wrapper">
+				<div class="row pt-2">
+					<div class="col-sm-12">
+						<img class="logo ml-1" src="/imgs/logo.png">
+					</div>
+
+				</div>
+
+				<div class="row">
+					<div class="current-nav ml-1 mt-2 col-sm-12">
+						<label class="nav-list toggle-overlay">REPORT</label>
+						<span class="toggle-overlay">
+							<i class="fas fa-caret-down overlay-show"></i>
+							<i class="fas fa-times overlay-hide hidden"></i>
+						</span>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="col-md-5 col-sm-10 col-xm- middle-wrapper">
+				<div class="row">
+						<form id="product-search-form" class="mt-4">
+							<div class="input-group col-sm-12 mt-3">
+								<input type="search" class="form-control" placeholder="Search product....." id="product-search-field">
+								<div class="input-group-append">
+									<span class="input-group-text" id="search-options">
+										<i class="fas fa-search search-symbol"></i>
+										<i class="fas fa-times reset-search hidden"></i>
+									</span>
+								</div>
+							</div>
+						</form>
+				</div>
+			</div>
+
+			<div class="col-md-5 right-wrapper">
+				<div class="row">
+					<div class="dropdown nav-item col-sm-8 offset-4">
+				        <a class="dropdown-toggle username-dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+				        </a>
+				        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+				          <a class="dropdown-item" href="#">Profile</a>
+				          <div class="dropdown-divider"></div>
+				          <a class="dropdown-item logout" href="#">Logout</a>
+				        </div>
+				    </div>
+				</div>
+
+				<div class="row mt-2">
+					<div class="input-group col-sm-8 offset-4">
+						<input type="text" class="form-control" placeholder="Client..." id="client-search-field">
+						<input type="text" name="" value="" class="hidden" id="client-search-id">
+						<div class="input-group-append">
+							<span class="input-group-text" id="search-options">
+								<i class="fas fa-search client-symbol"></i>
+								<i class="fas fa-times reset-client hidden"></i>
+							</span>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	<div class="row module-overlay hidden">
+		<ul class="module-overlay-box">
+			<li id="navigate-pos">POS</li>
+			<li id="navigate-report">REPORT</li>
+		</ul>
+	</div>
+
+	<div class="row menu-wrapper">
+			<div class="col-sm-8">
+				<ul class="menu-list">
+					<li>Daily sales</li>
+					<li>Weekly sales</li>
+					<li>Monthly Sales</li>
+				</ul>
+			</div>
+			<div style="margin-top: 4px" class="col-sm-4 submenu-icon">
+					<button class="icon-logo icon-filter float-right">ICON</button>
+			</div>
+		</div>
+
+	</header>
+
+</div> -->
+
+
+
+     <div class="row">
+         <div id="coverScreen"  class="LockOn">
+         </div>
+     </div>
+<!-- </div> -->
+
+
+
+
+	<div class="container-fluid">
+
+		<div class="row">
+			<div class="col-8 offset-2">
+				<div class="report-content mt-4">
+
+					<table id="report-entry-table" class="table table-striped report-table">
+						<thead>
+							<tr>
+								<th></th>
+								<th></th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody class="report-table-body">
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/notifier.js"></script>
+<script type="text/javascript" src="/js/app.js"></script>
+<script type="text/javascript" src="/js/nav.js"></script>
+<script type="text/javascript" src="/js/report.js"></script>
+</body>
+</html>

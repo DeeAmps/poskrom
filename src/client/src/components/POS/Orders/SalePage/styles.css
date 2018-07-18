@@ -1,0 +1,24 @@
+.orderLoading{
+    top: 75% !important;
+}
+
+th{
+    color: blue !important;
+}
+
+.salesOrdersBody{
+    overflow: scroll !important;
+}
+
+.innerGrid{
+    width: 100%;
+}
+
+.searchProduct{
+    width: 20%
+}
+
+.salesOrderWindow{
+    width: 80%;
+    padding-top: 8px;
+}

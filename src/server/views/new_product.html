@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+    <title>Poskrom | Inventory | Stock-In</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+	<!-- <link rel="stylesheet" type="text/css" href="/css/receipt.css"> -->
+  	<link rel="stylesheet" href="/css/jquery-ui.min.css">
+  	<link rel="stylesheet" href="/css/nav.css">
+		<link rel="stylesheet" href="/css/orders.css">
+		<link rel="stylesheet" href="/css/stock-in.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
+   
+  </head>
+  <body >
+
+		<div class="nav-container-fluid">
+				<div class="main-nav row">
+					<div class="col-md-2 left-wrapper">
+						<div class="row pt-2">
+							<div class="col-sm-12  logo-wrapper">
+								<img class="logo ml-1" src="/imgs/logo.png">
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="current-nav ml-1 mt-2 col-sm-12">
+								<label class="nav-list toggle-overlay">INVENTORY</label>
+								<span>
+									<i class="fas fa-caret-down overlay-show toggle-overlay"></i>
+									<i class="fas fa-times overlay-hide hidden toggle-overlay"></i>
+								</span>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="col-md-5 middle-wrapper">
+						<div class="row">
+								<form id="product-search-form" class="mt-4">
+									<div class="input-group col-sm-12 mt-3 product-search-wrapper">
+										<input type="text" class="form-control" placeholder="Search product....." id="product-search-field">
+										<div class="input-group-append">
+											<span class="input-group-text" id="search-options">
+												<i class="fas fa-search search-symbol"></i>
+												<i class="fas fa-times reset-search hidden"></i>
+											</span>
+										</div>
+									</div>
+								</form>
+						</div>
+					</div>
+
+					<div class="col-md-5 right-wrapper">
+						<div class="row">
+							<div class="dropdown nav-item col-sm-8 offset-4">
+								<a class="dropdown-toggle username-dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+								</a>
+								<input type="text" val="" class="hidden" id="username-id">
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item" href="#">Profile</a>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item logout" href="#">Logout</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="row mt-2">
+                <div class="col-sm-12">
+                  <div class="input-group client-search-wrapper" id="client-search-wrapper-id">
+                    <input type="text" class="form-control nav-autocomplete" placeholder="Client..." id="client-search-field">
+                    <input type="text" name="" value="" class="hidden" id="client-search-id">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="search-options">
+                        <i class="fas fa-search client-symbol"></i>
+                        <i class="fas fa-times reset-client hidden"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+					</div>
+					</div>
+				</div>		<!--Main navaber end-->
+				<div class="row module-overlay hidden">
+						<div class="module-overlay-box col-md-12">
+						</div>
+				</div>
+
+				<div class="row menu-wrapper">
+					<div class="col-sm-8 menu-left">
+						<ul class="menu-list">
+							<li id="menu-stock-in" class="active-menu">Stock-In</li>
+							<li id="menu-bank">Bank</li>
+              <li id="menu-depot">Depot</li>
+						</ul>
+					</div>
+                    <div class="col-sm-4 submenu-icon menu-right">
+							<button id="add_product" style="height: 35px" type="button" class="btn btn-primary float-right">Save Product <i class="fa fa-check"></i></button>
+						</div>
+				</div>
+			</div>
+      <div class="container-fluid" style="position: relative;">
+				<div>
+                        <h1 class="text-center">Add New Product</h1>
+                        <hr>
+                        <br>
+                        <form class="form-horizontal">
+                        <fieldset>
+                            <div id="productInputs">
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="product_id">PRODUCT BARCODE</label>  
+                                    <div class="col-md-4">
+                                        <input id="product_id" name="product_id" placeholder="PRODUCT CODE" class="form-control input-md" required="" type="text"> 
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                <label class="col-md-4 control-label" for="product_name">PRODUCT NAME</label>  
+                                    <div class="col-md-4">
+                                        <input id="product_name" name="product_name" placeholder="PRODUCT NAME" class="form-control input-md" required="" type="text">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        <div>
+                            <button id="addbarcodeunit" style="margin-left: 15px" type="button" class="btn btn-primary">Add Barcode Unit</button>
+                        </div>
+
+                        </fieldset>
+                        </form>
+                        
+                </div>
+				</div>
+      </div>
+
+
+
+
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/app.js"></script>
+	<script type="text/javascript" src="/js/notifier.js"></script>
+		<!-- <script src="js/sha256.js"></script> -->
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.5/jstree.min.js"></script>
+	  <script type="text/javascript" src="/js/nav.js"></script>
+    <script type="text/javascript" src="/js/stock-in.js"></script>
+    <script type="text/javascript" src="/js/new-product.js"></script>
+
+  </body>
+</html>

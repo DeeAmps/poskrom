@@ -1,0 +1,7 @@
+.prodSearch{
+    border-right: 1px solid grey;
+    -webkit-box-shadow: 5px 5px 15px grey;
+    -moz-box-shadow: 5px 5px 15px grey;
+    height: 80vh;
+    padding: 15px 5px 5px 5px;
+}

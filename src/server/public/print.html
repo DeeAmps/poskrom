@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bibiara | POS</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/receipt.css"/>
+</head>
+<body>
+	<div class="container-fluid">
+
+		<div class="row">
+			<div class="notification float-right">
+
+			</div>
+		</div>
+
+		<div class="row header-wrapper">
+			<div class="col-6">
+				<form id="product-search-form" class="form-inline form-top">
+					<div class="input-group mt-2">
+        				<div class="input-group-prepend">
+         					 <div class="input-group-text">Barcode</div>
+        				</div>
+        				<input type="text" class="form-control" id="product-search-field" placeholder="Barcode">
+      				</div>
+      				<button class="btn btn-default ml-2 mt-2">Search</button>
+				</form>
+			</div>
+			<div class="col-4">
+				<div class="total-wrapper float-right">
+					<div class="input-group mt-2">
+						<div class="input-group-prepend">
+							<div class="input-group-text">TOTAL GHS</div>
+						</div>
+						<label class="price-total form-control px-1">0.00</label>
+					</div>
+				</div>
+			</div>
+			<div class="col-2 col-sm-2">
+				<button class="btn btn-success mt-2 ml-4" onclick="window.print()">Purchase</button>
+			</div>
+		</div>   <!--End of row-->
+
+
+
+		<div class="row">
+			<table class="table table-scroll mt-4">
+				<thead>
+					<tr>
+						<th>Action</th><th>Product</th><th>Unit Price</th><th>Quantity</th><th>Stock Unit</th><th>Sum</th>
+					</tr>
+				</thead>
+				<tbody class="product-table-body">
+				</tbody>
+			</table>
+		</div>   <!--End of table row-->
+
+
+<!--Receipt div-->
+		<div class="row receipt-wrapper">
+				<div class="well col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
+						<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6">
+										<address>
+												<strong>Ecotel Enterprise</strong>
+												<br>
+												11th Street, Achimota Petroleum
+												<br>
+												Greater Accra
+												<br>
+												Phone: 0545444809
+										</address>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6 text-right">
+										<p>
+												<em>Date: 1st January, 2013</em>
+										</p>
+										<p>
+												<em>Order #: 3546476</em>
+										</p>
+										<p>
+												<em>Receipt #: 34522</em>
+										</p>
+								</div>
+						</div>
+						<div class="row">
+								<div class="text-center">
+										<h1>Receipt</h1>
+								</div>
+								</span>
+								<table class="table">
+										<thead>
+												<tr>
+														<th>Product</th>
+														<th>Qty</th>
+														<th class="text-center">Price</th>
+														<th class="text-center">Total</th>
+												</tr>
+										</thead>
+										<tbody id="order-entries-print">
+												<tr id="hidden">
+														<td class="col-md-9 product-name">Coca cola 2Lt bottle</td>
+														<td class="col-md-1 quantity" style="text-align: center"> 2 </td>
+														<td class="col-md-1 text-center unit-price">GHC13</td>
+														<td class="col-md-1 text-center sum">GHC26</td>
+												</tr>
+												<tr>
+														<td class="col-md-9"><em>Agbeli Kaklo</em></h4></td>
+														<td class="col-md-1" style="text-align: center"> 1 </td>
+														<td class="col-md-1 text-center">GHC8</td>
+														<td class="col-md-1 text-center">GHC8</td>
+												</tr>
+												<tr>
+														<td class="col-md-9"><em>Henessy 750ml</em></h4></td>
+														<td class="col-md-1" style="text-align: center"> 3 </td>
+														<td class="col-md-1 text-center">GHC16</td>
+														<td class="col-md-1 text-center">GHC48</td>
+												</tr>
+												<tr>
+														<td>   </td>
+														<td>   </td>
+														<td class="text-right">
+														<p>
+																<strong>Subtotal: </strong>
+														</p>
+														</td>
+														<td class="text-center">
+														<p>
+																<strong>GHC6.94</strong>
+														</p>
+														</td>
+												</tr>
+												<tr>
+														<td>   </td>
+														<td>   </td>
+														<td class="text-right"><h4><strong>Total: </strong></h4></td>
+														<td class="text-center"><h4><strong>GHC31.53</strong></h4></td>
+												</tr>
+												<tr>
+													<td> </td>
+													<td> </td>
+													<td class="text-right mt-6"><h4><strong>Cash: </strong></h4></td>
+													<td class="text-center"><h4><strong>GHC31.53</strong></h4></td>
+												</tr>
+										</tbody>
+								</table>
+						</div>
+				</div>
+
+	</div> <!--End of container-->
+
+
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/pos.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+.receipt-wrapper{
+  display: none;
+}
+
+@media print {
+  @page{
+    size: 0;
+    margin: 0mm;
+  }
+  .container-fluid, .nav-container-fluid {
+    display: none;
+  }
+
+  .receipt-wrapper {
+    font-family: "Lucida Console", Courier, Raleway;
+    display: block;
+    width: 50%;
+    text-align: center;
+  }
+  .receipt-content {
+    width: 80%;
+  }
+  .address-container {
+    width: 100%;
+  }
+  .emphasize{
+    font-weight: bolder;
+    font-size: 25px;
+  }
+}

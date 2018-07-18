@@ -1,0 +1,45 @@
+html, body {
+    min-height: 100%;
+    height: 100%;
+  }
+
+  body {
+    overflow-y: scroll;
+    background-color: #f7f9f8;
+  }
+
+.report-body {
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+	flex-wrap: nowrap;
+}
+
+td.hidden {
+	display: none;
+}
+
+
+.LockOn {
+    display: none;
+    visibility: visible;
+    position: absolute;
+    z-index: 9999;
+    top: 0px;
+    left: 0px;
+    width: 105%;
+    height: 105%;
+    background-color:white;
+    vertical-align:bottom;
+    padding-top: 20%;
+    filter: alpha(opacity=75);
+    opacity: 0.75;
+    font-size:large;
+    color:blue;
+    font-style:italic;
+    font-weight:400;
+    background-image: url("/imgs/rolling.gif");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    }

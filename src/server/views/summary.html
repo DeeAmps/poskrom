@@ -1,0 +1,444 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/jquery-ui.min.css">
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/receipt.css">
+    <link rel="stylesheet" href="/css/summary.css">
+    <title>Poskrom | Checkout</title>
+  </head>
+  <body>
+
+
+		<div class="nav-container-fluid">
+			<div class="main-nav row">
+				<div class="col-md-2 left-wrapper">
+					<div class="row pt-2">
+						<div class="col-sm-12 logo-wrapper">
+							<img class="logo ml-1" src="/imgs/logo.png">
+						</div>
+					</div>
+
+					<div class="row">
+              <div class="current-nav ml-1 mt-2 col-sm-12">
+                  <label class="nav-list toggle-overlay">POS</label>
+                  <span>
+                    <i class="fas fa-caret-down overlay-show toggle-overlay"></i>
+                    <i class="fas fa-times overlay-hide hidden toggle-overlay"></i>
+                  </span>
+                </div>
+					</div>
+				</div>
+
+
+				<div class="col-md-5 middle-wrapper">
+					<div class="row">
+							<form id="product-search-form" class="mt-4">
+								<div class="input-group col-sm-12 mt-3">
+									<input type="text" class="form-control" placeholder="Search product....." id="product-search-field">
+									<div class="input-group-append">
+										<span class="input-group-text" id="search-options">
+											<i class="fas fa-search search-symbol"></i>
+											<i class="fas fa-times reset-search hidden"></i>
+										</span>
+									</div>
+								</div>
+							</form>
+					</div>
+				</div>
+
+				<div class="col-md-5 right-wrapper">
+					<div class="row">
+						<div class="dropdown nav-item col-sm-8 offset-4">
+							<a class="dropdown-toggle username-dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+              </a>
+              <input type="text" val="" class="hidden" id="username-id">
+							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="#">Profile</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item logout" href="#">Logout</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="row mt-2">
+            <div class="col-sm-12">
+              <div class="input-group client-search-wrapper" id="client-search-wrapper-id">
+                <img src="/imgs/spin2.gif" class="mt-2 mr-1 client-active-loader hidden"/>
+                <input type="text" class="form-control nav-autocomplete" placeholder="Client..." id="client-search-field">
+                <input type="text" name="" value="" class="hidden" id="client-search-id">
+                <div class="input-group-append">
+                  <span class="input-group-text" id="search-options">
+                    <i class="fas fa-search client-symbol"></i>
+                    <i class="fas fa-times reset-client hidden"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+				</div>
+			</div>		<!--Main navaber end-->
+
+			<div class="row module-overlay hidden">
+        <div class="module-overlay-box col-md-12">
+          <!-- <div id="navigate-pos" class="box">
+            <div class="icon-image-container"><img class="module-icon" src="/imgs/pos1.png" alt="pos"></div>
+            <div class="icon-label-container"><span class="icon-label-text">pos</span></div>
+          </div>
+
+          <div id="navigate-report" class="box">
+              <div class="icon-image-container"><img class="module-icon" src="/imgs/report.png" alt="pos"></div>
+              <div class="icon-label-container"><span class="icon-label-text">reports</span></div>
+          </div>
+
+          <div id="navigate-inventory" class="box">
+              <div class="icon-image-container"><img class="module-icon" src="/imgs/inventory.png" alt="pos"></div>
+              <div class="icon-label-container"><span class="icon-label-text">inventory</span></div>
+          </div> -->
+        </div>
+      </div>
+
+			<div class="row menu-wrapper">
+				<div class="col-sm-8 menu-left">
+					<ul class="menu-list">
+            <li id="menu-sales">sales</li>
+            <li id="menu-purchases">purchases</li>
+            <li id="menu-transfer">transfers</li>
+					</ul>
+				</div>
+				<div class="col-sm-4 submenu-icon menu-right">
+						<img src="/imgs/shopping-cart.png" alt="cart-icon" class="cart-logo icon-logo cart-icon float-right">
+				</div>
+			</div>
+		</div>
+
+
+
+
+<div class="container-fluid">
+
+    <div class="row checkout-form-container">
+      <!-- <div class="col-1"></div> -->
+      <div class="col-md-12">
+        <div class="row checkout-row">
+          <form class="container checkout-form col-sm-12" id="checkout-id" style="position: relative;">
+              <div id="mainCoverScreen"  class="LockOn main-cover-screen hidden"></div>
+            <div class="row">
+
+
+              <div class="col-4 left-div">
+
+                  <div class="form-group row depot-wrapper">
+                      <label for="depot" >seller:</label>
+                      <input type="text" id="select-seller" value="" class="form-control default-inputs">
+                      <input value="" id="select-seller-id" class="hidden" name="seller_id">
+                  </div>
+
+                  <div class="form-group row buyer-wrapper">
+                      <label for="buyer">buyer:</label>
+                      <input type="text" value="" class="form-control default-inputs" id="select-buyer">
+                      <input value="" id="select-buyer-id" class="hidden" name="buyer_id">
+                  </div>
+
+                  <div class="form-group row depot-wrapper">
+                      <label for="depot">stock-in depot:</label>
+                      <input type="text" id="select-depot" value="" class="form-control default-inputs">
+                      <input value="" id="select-depot-id" class="hidden" name="depot_id">
+                  </div>
+
+                  <div class="form-group row currency-default-wrapper">
+                      <label for="depot">checkout currency:</label>
+                      <input type="text" id="select-default-currency" value="" class="form-control default-inputs" required>
+                      <input value="" id="select-currency-id" class="hidden" name="currency_default_id">
+                  </div>
+
+                  <div class="row total-paid-wrapper">
+                      <p class="col-sm-12 paid-p">paid (<span id="paid-cash-label"></span>): <span id="total-value-span" class="float-right"> <span id="paid-value">0.00</span> 
+                        / <span id="invoice-amount-value"><span id="invoice-price-xrate" class=""></span></p>
+                  </div>
+
+                  <div class="row form-group btn-submit-wrapper">
+                    <button type="submit" name="commit-button" class="btn btn-success col-sm-12" id="btn-submit">close order</button>
+                  </div>
+
+                  <div class="form-group row form-check-inline print-check-wrapper">
+                    <input type="checkbox" class="form-check-input" id="receipt-print-direct">
+                    <label class="form-check-label" for="exampleCheck1">Print receipt</label>
+                </div>
+
+              </div>
+
+
+
+              <div class="col-8 right-div">
+                    <div class="row">
+                            <div class="col-sm-12 rmv-pad-mag">
+                                <span id="config-wrapper"><span id="config-label">payment configuration</span><span id="config-btn"><i class="fas fa-angle-down"></i><i class="fas fa-angle-up hidden"></i></span></span>
+                            </div>
+                    </div>
+                    <div class="config-container">
+                        <div class="row right-div-payment-wrapper">
+                            <div class="col-sm-6">
+                                <div class="form-group row payment-channel-wrapper">
+                                    <label for="payment-channel">payment channel:</label>
+                                    <select type="text" name="" value="" class="form-control" id="select-payment"></select>
+                                </div>
+
+
+                                <div class="form-group row currency-wrapper">
+                                    <label for="payment-channel">payment currency:</label>
+                                    <select type="text" name="" value="" class="form-control" id="select-currency"></select>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group row credit-bank-wrapper pl-3">
+                                    <label for="credit-bank">debitor:</label>
+                                    <input type="text" id="debitor-value" value="" class="form-control default-inputs" disabled placeholder="paid in by">
+                                    <input value="" id="debitor-id" class="hidden" name="debitor_id">
+                                </div>
+
+                                <div class="form-group row debit-bank-wrapper pl-3">
+                                    <label for="debit-bank">debit bank:</label>
+                                    <input type="text" id="select-debit-bank" value="" class="form-control default-inputs" disabled placeholder="where money comes from">
+                                    <input value="" id="select-debit-bank-id" class="hidden" name="debitbank_id">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                  <div class="row popup-cap-wrapper">
+                      <div class="col-sm-6 cap-wrapper rmv-pad-mag">
+                        <span id="amount-label">amount (<span class="balance-p"><span id="balance-cash-label"></span>):</span><span class="float-right">
+                            <span id="amount-value">0.00</span> / <span id="balance-value">0.00</span></span>
+                        </span>
+                    </span>
+                      </div>
+
+                      <div class="col-md-6">
+                          <span class="float-right">(<span id="cap-label">cap: </span><span id="cap-symbol"></span><span id="cap-value">-</span>)
+                      </div>
+                  </div>
+
+
+                  <!-- <div class="row popup-total-wrapper mt-2">
+                      <label class="col-sm-4 popup-labels">amount:</label>
+                      <div class="col-sm-5 rmv-pad-mag">
+                          <span id="popup-total-label-symbol"></span>
+                          <label id="popup-total-label">0.00</label>
+                      </div>
+                  </div> -->
+
+
+
+                  <div class="form-group row quantity-wrapper">
+                      <select type="text" name="" value="" class="form-control col-sm-6" id="select-denomination"></select>
+                      <div class="col-sm-3" style="position: relative">
+                          <input type="text" oninput="validateNumber(this)" name="denomination-quantity" min="1" class=" form-control quantity-field" value="" id="select-quantity" autofocus="autofocus" autocomplete="off">
+                          <div class="calculator-wrapper hidden">
+                              <div class="calculator">
+                                  <div class="c-row">
+                                      <div class="num-key"><label id="num-1" class="num">1</label></div>
+                                      <div class="num-key"><label id="num-2" class="num">2</label></div>
+                                      <div class="num-key"><label id="num-3" class="num">3</label></div>
+                                  </div>
+                                  <div class="c-row">
+                                      <div class="num-key"><label id="num-4" class="num">4</label></div>
+                                      <div class="num-key"><label id="num-5" class="num">5</label></div>
+                                      <div class="num-key"><label id="num-6" class="num">6</label></div>
+                                  </div>
+                                  <div class="c-row">
+                                      <div class="num-key"><label id="num-7" class="num">7</label></div>
+                                      <div class="num-key"><label id="num-8" class="num">8</label></div>
+                                      <div class="num-key"><label id="num-9" class="num">9</label></div>
+                                  </div>
+                                  <div class="c-row last">
+                                      <div class="num-key"><label id="num-back"><=</label></div>
+                                      <div class="num-key"><label id="num-0" class="num">0</label></div>
+                                      <div class="num-key"><label id="num-decimal" class="num">.</label></div>
+                                  </div>
+                              </div>
+                          </div>
+
+                      </div>
+
+                       <div class="col-sm-3">
+                          <button type="button" class="btn btn-success col-sm-12 ml-3" id="add-payment-btn" disabled>add another</button>
+                       </div>
+                  </div>
+
+
+
+                  <div class="row commit-wrapper form-group">
+                      <div class="form-group col-sm-6 credit-bank-wrapper rmv-pad-mag">
+                        <label for="credit-bank">credit bank:</label>
+                        <input type="text" id="select-credit-bank" value="" class="form-control default-inputs" placeholder="where money goes into">
+                        <input value="" id="select-credit-bank-id" class="hidden" name="creditbank_id">
+                      </div>
+
+                      <div class="col-sm-6 add-payment-wrappr rmv-pad-mag pl-3">
+                          <div class="col-sm-12 rmv-pad-mag"><button type="button" class="btn btn-success btn-block" id="addall-payment-btn">add another payment</button></div>
+                      </div>
+                  </div>
+
+                  <div class="row cash-dynamic">
+                    <div class="col-sm-12 pl-2">
+                      <div class="row tag-wrapper">
+                        <div class="col-sm-12 tag-base rmv-pad-mag">
+
+                        </div>
+                      </div>
+
+                    </div>
+                  </div> 
+
+                <hr style="width: 80%; background-color: #ffffff">
+
+                <div class="row dynamic-content">
+                  <div class="col-12 px-6 py-2 dynamic-base">
+                  </div>
+                </div>
+
+
+
+                <!-- <div class="form-group row price-total-wrapper mt-3">
+                  <label for="price-total" class="col-sm-4 col-form-label rmv-pad-mag">total:</label>
+                  <span class="invoice-amount-symbol col-sm-1 col-form-label offset-1 rmv-pad-mag" id="invoice-amount-symbol"></span>
+                  <input type="text" readonly class="col-sm-3 form-control-plaintext rmv-pad-mag payment-input-values" value="" id="invoice-amount-value">
+                </div> -->
+<!--
+                <div class="form-group row paid-wrapper">
+                  <label for="select-paid" class="col-sm-4 col-form-label rmv-pad-mag">paid:</label>
+                  <label class="cash-symbol col-sm-1 col-form-label rmv-pad-mag" id="paid-cash-label"></label>
+                  <input type="text" readonly class="col-sm-3 form-control-plaintext rmv-pad-mag" value="0.00" id="paid-value">
+                </div> -->
+<!--
+                <div class="form-group row balance-wrapper mt-3">
+                  <label for="balance" class="col-sm-4 col-form-label rmv-pad-mag">balance:</label>
+                  <label class="cash-symbol col-sm-1 col-form-label offset-1 rmv-pad-mag" id="balance-cash-label"></label>
+                  <input type="text" readonly class="col-sm-3 form-control-plaintext rmv-pad-mag" value="" id="balance-value">
+                </div> -->
+
+
+
+              </div>
+
+              </div>
+
+
+
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- <div class="col-1"></div> -->
+    </div>
+    </div>
+
+
+
+    <div class="modal" id="confirm-payment-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+              <div class="modal-header">
+                  Delete Payment entry...
+                  <input id = "confirm-box-payment-entry-id" val="" class="hidden" readonly/>
+              </div>
+              <div class="modal-body">
+                  Are you sure you want to delete order <span id="delete-order-ref" style="margin-left:0;"></span>?
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
+                  <a class="btn btn-danger btn-ok" id="btn-delete-payment-entry-modal">Delete</a>
+              </div>
+          </div>
+      </div>
+   </div>
+
+
+
+
+
+    <div class="receipt-wrapper">
+      <div class="receipt-content">
+             <div class="address-container">
+                 <address>
+                     <strong id="depot-name">Ecotel Enterprise</strong><br>
+                     <span id="depot-address-1">11th Street, Achimota Petroleum</span><br>
+                     <span id="depot-address-2">Accra</span> <br>
+                     Phone: <span id="depot-phone">0545444809</span>
+                 </address>
+                 <span id='print-timestamp'></span>
+             </div>
+         <div class="ref-container">
+                 <h4>invoice #: <span id="receipt-invoice-number"></span></h4>
+             <table class="table invoice-table">
+                 <thead>
+                     <tr>
+                         <th>Product</th>
+                         <th>Qty</th>
+                         <th>Price</th>
+                         <th class="text-center">Total</th>
+                     </tr>
+                 </thead>
+                 <tbody id="order-entries-print">
+                          <tr class="entry-base">
+                             <td class="col-md-9 product-name"></td>
+                             <td class="col-md-1 quantity" style="text-align: center"><span class="receipt-stock-unit"></span></td>
+                             <td class="col-md-1 text-center unit-price"></td>
+                             <td class="col-md-1 text-center sum"></td>
+                          </tr>
+
+                 </tbody>
+             </table>
+         </div>
+         <div class="row">
+           <div class="col-sm-6 col-xs-6 col-md-12">
+             <div class="emphasize float-right">
+               TOTAL: <span class="currency">GHC</span><span id="receipt-total">0.00</span>
+               <p class="receipt-paid-wrapper">Paid: <span id="receipt-paid"></span></p>
+               <p class="receipt-balance-wrapper">Balance: <span classid="receipt-balance"></span></p>
+             </div>
+           </div>
+         </div>
+       </div>
+   </div>
+
+
+
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/nav.js"></script>
+    <script type="text/javascript" src="/js/app.js"></script>
+    <script type="text/javascript" src="/js/notifier.js"></script>
+    <script type="text/javascript" src="/js/summary.js"></script>
+
+    <script type="text/javascript">
+    var validNumber = new RegExp(/^\d*\.?\d*$/);
+    var lastValid = $('#select-quantity').val();
+    function validateNumber(elem) {
+      if (validNumber.test(elem.value)) {
+        lastValid = elem.value;
+        $('#select-quantity').val(lastValid);
+      } else {
+        elem.value = lastValid;
+          console.log(lastValid);
+          $('#select-quantity').val(lastValid);
+          Notifier.error('Invalid entry');
+      }
+    }
+
+
+    </script>
+  </body>
+</html>
